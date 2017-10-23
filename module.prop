@@ -1,0 +1,9 @@
+id=0000initdlinker
+name=Init.d Linker
+version=v1.0
+versionCode=1
+author=ahrion, zackptg5
+description=Allows the quick zipping automation of all Dolby Atmos' located in the Forker github application folder "sdcard/Android/data/ch.phcoder.jigit/files/repo/Collective-Dolby-Atmos-Ports" by executing the /system/etc/dax_maker.sh
+support=https://forum.xda-developers.com/android/software/soundmod-axon-7-dolby-atmos-t3412342
+donate=https://github.com/therealahrion/Collective-Dolby-Atmos-Ports
+template=1410
