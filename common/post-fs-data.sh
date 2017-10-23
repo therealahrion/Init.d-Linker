@@ -7,6 +7,11 @@ if [ ! -d /magisk/$MODID ]; then
 fi
 
 if [ $UNINSTALL == false ]; then
+  if [ ! -d $SYS/etc/init.d ]; then
+    mkdir $SYS/etc/init.d
+    chmod 755 $SYS/etc/init.d
+  fi
+
   if [ -f /magisk/$MODID/post-fs-data.sh ]; then
     mkdir /magisk/.core/post-fs-data.d/init.d
     chmod 755 /magisk/.core/post-fs-data.d/init.d
