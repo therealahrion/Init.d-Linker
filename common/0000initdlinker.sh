@@ -3,9 +3,12 @@
 # This will make your scripts compatible even if Magisk change its mount point in the future
 MODDIR=${0%/*}
 
-# This script will be executed in late_start service mode
+# This script will be executed in post-fs-data mode
 # More info in the main Magisk thread
 
-for FILE in /magisk/.core/service.d/init.d/*; do
-  test "$FILE" != "0000liveboot" && su -c sh $FILE &
-done
+if [ ! -d /magisk/0000initdlinker ]; then
+  rm -rf /magisk/.core/post-fs-data.d/init.d
+  rm -rf /magisk/.core/service.d/init.d
+  rm -f $0
+  reboot
+fi

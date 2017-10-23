@@ -172,11 +172,13 @@ if [ "$ACTION" == "Install" ]; then
   mkdir -p $MODPATH
 
   # Copy files
-  # ui_print "- Extracting module files"
-  # # Remove placeholder (people always forgot to remove it...)
+  ui_print "- Extracting module files"
+  # Remove placeholder (people always forgot to remove it...)
   # rm -f $MODPATH/system/placeholder 2>/dev/null
   # unzip -o "$ZIP" 'system/*' -d $MODPATH 2>/dev/null
-
+  $BOOTMODE && CORE=/magisk/.core || CORE=$MOUNTPATH/.core
+  cp -f $INSTALLER/common/$MODID.sh $CORE/post-fs-data.d/$MODID.sh
+  
   # Handle replace folders
   for TARGET in $REPLACE; do
     mktouch $MODPATH$TARGET/.replace
