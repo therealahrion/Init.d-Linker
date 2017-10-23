@@ -1,12 +1,15 @@
-UNINSTALL=false
+#!/system/bin/sh
+# Please don't hardcode /magisk/modname/... ; instead, please use $MODDIR/...
+# This will make your scripts compatible even if Magisk change its mount point in the future
+MODDIR=${0%/*}
+
+# This script will be executed in post-fs-data mode
+# More info in the main Magisk thread
 
 if [ ! -d /magisk/$MODID ]; then
   rm -f /magisk/.core/post-fs-data.d/$MODID.sh
-  UNINSTALL=true
   rm -rf /magisk/.core/post-fs-data.d/init.d
-fi
-
-if [ $UNINSTALL == false ]; then
+else
   if [ ! -d $SYS/etc/init.d ]; then
     mkdir $SYS/etc/init.d
     chmod 755 $SYS/etc/init.d

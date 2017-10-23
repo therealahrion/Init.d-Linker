@@ -1,13 +1,16 @@
-UNINSTALL=false
+#!/system/bin/sh
+# Please don't hardcode /magisk/modname/... ; instead, please use $MODDIR/...
+# This will make your scripts compatible even if Magisk change its mount point in the future
+MODDIR=${0%/*}
+
+# This script will be executed in late_start service mode
+# More info in the main Magisk thread
 
 if [ ! -d /magisk/$MODID ]; then
   rm -f /magisk/.core/service.d/$MODID.sh
-  UNINSTALL=true
   rm -rf /magisk/.core/service.d/init.d
   reboot
-fi
-
-if [ $UNINSTALL == false ]; then
+else
   if [ -f /magisk/$MODID/service.sh ]; then
     mkdir /magisk/.core/service.d/init.d
     chmod 755 /magisk/.core/service.d/init.d
