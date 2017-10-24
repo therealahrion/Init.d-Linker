@@ -6,4 +6,6 @@ MODDIR=${0%/*}
 # This script will be executed in post-fs-data mode
 # More info in the main Magisk thread
 
-test -f /system/etc/init.d/0000liveboot && su -c sh /system/etc/init.d/0000liveboot
+for FILE in /system/etc/init.d/*; do
+  su -c sh $FILE &
+done
