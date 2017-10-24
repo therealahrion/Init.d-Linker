@@ -6,6 +6,6 @@ MODDIR=${0%/*}
 # This script will be executed in post-fs-data mode
 # More info in the main Magisk thread
 
-test ! -d /magisk/0000initdlinker && rm -f /magisk/.core/post-fs-data.d/0000initdlinker.sh && exit
+test ! -d /magisk/0000initdlinker && { rm -f $0; exit; }
 
 test -f /system/etc/init.d/0000liveboot && su -c sh /system/etc/init.d/0000liveboot

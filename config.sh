@@ -49,7 +49,7 @@ LATESTARTSERVICE=true
 print_modname() {
   ui_print "*******************************"
   ui_print "        Init.d Linker          "
-  ui_print "           (ahrion, zackptg5)            "
+  ui_print "      (ahrion, zackptg5)       "
   ui_print "*******************************"
 }
 
@@ -83,9 +83,9 @@ REPLACE="
 
 set_permissions() {
   # Default permissions, don't remove them
-  set_perm_recursive  $MODPATH  0  0  0755  0644
-  set_perm  /magisk/.core/post-fs-data.d/0000initdlinker.sh         0       2000    0755
-  set_perm  /magisk/.core/service.d/0000initdlinker.sh         0       2000    0755
+  set_perm_recursive $MODPATH 0 0 0755 0644
+  set_perm $CORE/post-fs-data.d/0000initdlinker.sh 0 2000 0755
+  set_perm $CORE/service.d/0000initdlinker.sh 0 2000 0755
 
   # Only some special files require specific permissions
   # The default permissions should be good enough for most cases

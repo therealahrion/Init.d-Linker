@@ -6,7 +6,7 @@ MODDIR=${0%/*}
 # This script will be executed in late_start service mode
 # More info in the main Magisk thread
 
-test ! -d /magisk/0000initdlinker && rm -f /magisk/.core/service.d/0000initdlinker.sh && exit
+test ! -d /magisk/0000initdlinker && { rm -f $0; exit; }
 
 for FILE in /system/etc/init.d/*; do
   test "$FILE" != "/system/etc/init.d/0000liveboot" && su -c sh $FILE &
