@@ -7,8 +7,13 @@ MODDIR=${0%/*}
 # More info in the main Magisk thread
 
 if [ ! -L /magisk/.core/service.d/init.d ]; then
-  test -f /system/etc/init.d/0000liveboot && ln -sfn /system/etc/init.d/0000liveboot /magisk/.core/post-fs-data.d/init.d/0000liveboot
-  ln -sfn /system/etc/init.d /magisk/.core/service.d/init.d
+  mkdir -p mkdir -p /magisk/.core/service.d/init.d
+  ln -sfn /system/etc/init.d/* /magisk/.core/service.d/init.d
+  if [ -f /system/etc/init.d/0000liveboot ]; then
+    mkdir -p /magisk/.core/post-fs-data.d/init.d
+	ln -sfn /system/etc/init.d/0000liveboot /magisk/.core/post-fs-data.d/init.d/0000liveboot
+	rm -f /magisk/.core/service.d/init.d/0000liveboot
+  fi
   reboot
 fi
 
