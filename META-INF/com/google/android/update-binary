@@ -155,8 +155,10 @@ ui_print "- Mounting $IMG to $MOUNTPATH"
 MAGISKLOOP=`$MAGISKBIN/magisk --mountimg $IMG $MOUNTPATH`
 is_mounted $MOUNTPATH || abort "! $IMG mount failed..."
 
-if [ -f "$MODPATH/module.prop" ]; then
-  if [ $(grep "versionCode=" $MODPATH/module.prop | sed 's/^.*=//') -ge $(grep "versionCode=" $INSTALLER/module.prop | sed 's/^.*=//') ]; then
+# Detect if mod is already installed
+$BOOTMODE && MOD_VER=/magisk/$MODID/module.prop || MOD_VER=$MODPATH/module.prop
+if [ -f "$MOD_VER" ]; then
+  if [ $(grep "versionCode=" $MOD_VER | sed 's/^.*=//') -ge $(grep "versionCode=" $INSTALLER/module.prop | sed 's/^.*=//') ]; then
     ACTION="Uninstall"
   else
     ACTION="Install"
