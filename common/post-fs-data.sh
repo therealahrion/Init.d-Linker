@@ -6,7 +6,7 @@ MODDIR=${0%/*}
 # This script will be executed in post-fs-data mode
 # More info in the main Magisk thread
 
-if [ ! -L /magisk/.core/service.d/init.d ]; then
+if [ ! -d /magisk/.core/service.d/init.d ]; then
   mkdir -p mkdir -p /magisk/.core/service.d/init.d
   ln -sfn /system/etc/init.d/* /magisk/.core/service.d/init.d
   if [ -f /system/etc/init.d/0000liveboot ]; then
