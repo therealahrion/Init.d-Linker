@@ -8,4 +8,4 @@ MODDIR=${0%/*}
 
 test ! -d /magisk/0000initdlinker && { rm -f $0; exit; }
 
-test -f /system/etc/init.d/0000liveboot && su -c sh /system/etc/init.d/0000liveboot
+test -f /system/etc/init.d/0000liveboot && su -c sh /system/etc/init.d/0000liveboot &
