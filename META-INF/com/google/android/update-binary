@@ -179,8 +179,9 @@ if [ "$ACTION" == "Install" ]; then
   # rm -f $MODPATH/system/placeholder 2>/dev/null
   # unzip -o "$ZIP" 'system/*' -d $MODPATH 2>/dev/null
   
-  # Set .core path
+  # Set .core path and make folders for magisk clean flash support
   $BOOTMODE && CORE=/magisk/.core || CORE=$MOUNTPATH/.core
+  mkdir -p $CORE/post-fs-data.d $CORE/service.d
   
   # Handle replace folders
   for TARGET in $REPLACE; do
