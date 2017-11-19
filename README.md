@@ -1,5 +1,5 @@
 # Init.d Linker
-This mod links Init.d to Magisk and if no Init.d is detected it links Magsik to Init.d. 
+This mod runs init.d scripts as late start service except liveboot which is run as post-fs-data
 
 ## Change Log
 v1.0
