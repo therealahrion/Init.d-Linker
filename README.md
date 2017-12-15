@@ -6,4 +6,4 @@ v1.0
     - Initial release
 
 ## Source Code
-* Module [GitHub](https://github.com/therealahrion/<url>)
+* Module [GitHub](https://github.com/therealahrion/Init.d-Linker)
