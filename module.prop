@@ -1,9 +1,7 @@
 id=0000initdlinker
 name=Init.d Linker
-version=v1.0
-versionCode=1
+version=v1.1
+versionCode=1.1
 author=ahrion, zackptg5
-description=Links Init.d to Magisk and if no Init.d is detected, it links Magsik to Init.d.
-support=
-donate=
-template=1400
+description=Runs init.d scripts as late start service except liveboot which is run as post-fs-data
+minMagisk=1500
