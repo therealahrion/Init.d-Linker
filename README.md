@@ -2,6 +2,10 @@
 This mod runs init.d scripts as late start service except liveboot which is run as post-fs-data
 
 ## Change Log
+v1.2
+
+    - Create init.d if it doesn't exist
+
 v1.1
     - Updated to template v1500
 
